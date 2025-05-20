@@ -1,0 +1,18 @@
+<div class="mx-auto max-w-2xl">
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold">Application</h1>
+    <div class="text-sm text-gray-500">Step {@page} of 9</div>
+  </div>
+
+  <div class="bg-white shadow-md rounded-lg p-6">
+    {render_page_header(@page)}
+
+    <.application_form changeset={@changeset} action={~p"/register/page-#{@page}"} page={@page} />
+  </div>
+
+  <div class="mt-6 text-center text-sm text-gray-500">
+    <p>Your information is secure and encrypted.</p>
+  </div>
+</div>
+
+{render_progress_bar(@page)}
