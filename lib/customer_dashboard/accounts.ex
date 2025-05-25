@@ -16,6 +16,7 @@ defmodule CustomerDashboard.Accounts do
       with {:ok, user} <- Repo.insert(User.registration_changeset(%User{}, user_attrs)),
            {:ok, application} <-
              Repo.update(Application.submit_changeset(application, %{user_id: user.id})) do
+        CustomerDashboard.MessagePublisher.publish_application_created(application)
         {user, application}
       else
         {:error, changeset} ->

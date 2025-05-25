@@ -5,6 +5,33 @@ defmodule CustomerDashboard.Applications.Application do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
 
+  @derive {Jason.Encoder,
+           only: [
+             :id,
+             :status,
+             :first_name,
+             :last_name,
+             :email,
+             :phone_number,
+             :date_of_birth,
+             :ssn,
+             :address_street1,
+             :address_street2,
+             :address_city,
+             :address_state,
+             :address_zip,
+             :monthly_income,
+             :income_type,
+             :bank_name,
+             :routing_number,
+             :account_number,
+             :agreed_to_terms,
+             :submitted_at,
+             :inserted_at,
+             :updated_at,
+             :user_id
+           ]}
+
   schema "applications" do
     field :status, :string
     field :first_name, :string
